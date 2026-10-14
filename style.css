@@ -1,0 +1,802 @@
+/* ==========================================
+   RISHI MAHANTA CAMPAIGN WEBSITE
+   ORIGINAL RESPONSIVE STYLESHEET
+========================================== */
+
+:root {
+    --bg: #080d18;
+    --panel: #101a2b;
+    --blue: #477cff;
+    --light-blue: #7fa3ff;
+    --gold: #e5bd68;
+    --white: #f5f7fc;
+    --muted: #a3afc1;
+    --border: rgba(255, 255, 255, 0.11);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+    min-height: 76px;
+    padding: 10px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 13, 24, 0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.college-logo {
+    display: block;
+    width: 44px;
+    height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    object-fit: contain;
+    flex: 0 0 44px;
+}
+
+.brand-text {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+.brand-text small {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #c7cede;
+    font-size: 13px;
+}
+
+.navigation a {
+    transition: color 0.2s ease;
+}
+
+.navigation a:hover {
+    color: var(--light-blue);
+}
+
+.nav-cta {
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 0;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   SHARED SECTIONS
+========================================== */
+
+.section {
+    padding: 80px 10%;
+}
+
+.eyebrow {
+    color: var(--light-blue);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.eyebrow-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 9px;
+}
+
+.section-heading {
+    margin-bottom: 42px;
+}
+
+.section-heading h2,
+.contact h2 {
+    font-size: clamp(34px, 4.5vw, 56px);
+    line-height: 1.15;
+    letter-spacing: -1.8px;
+}
+
+.section-heading h2 span,
+.contact h2 span {
+    color: var(--light-blue);
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    min-height: 610px;
+    padding: 35px 7% 20px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            rgba(7, 13, 28, 0.65),
+            rgba(7, 13, 28, 0.82)
+        ),
+        url("../Assets/Mori_Banner.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    min-width: 0;
+}
+
+.hero-intro {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: clamp(39px, 4.5vw, 68px);
+    font-weight: 900;
+    letter-spacing: -2.7px;
+    line-height: 1.07;
+}
+
+.hero h1 span {
+    color: var(--light-blue);
+    white-space: nowrap;
+}
+
+.candidate-role {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.hero-description {
+    max-width: 440px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 19px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button-primary {
+    background: var(--blue);
+    color: white;
+}
+
+.button-primary:hover {
+    background: #3569e9;
+}
+
+.button-outline {
+    border: 1px solid var(--border);
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 27px;
+}
+
+.note-line {
+    width: 35px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   CANDIDATE PHOTO — NO FRAME
+========================================== */
+
+.hero-visual {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.portrait-glow {
+    position: absolute;
+    width: 100%;
+    height: 85%;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse,
+        rgba(47, 91, 180, 0.27),
+        transparent 70%
+    );
+    filter: blur(40px);
+    pointer-events: none;
+}
+
+.portrait-frame {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    height: 560px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+.portrait-frame::before,
+.portrait-frame::after {
+    content: none !important;
+    display: none !important;
+}
+
+.candidate-photo {
+    display: block;
+    width: 130%;
+    height: 120%;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+    object-position: center bottom;
+    transform: translateY(-45px);
+}
+
+/* Hide old decorative elements */
+
+.portrait-label,
+.floating-mark {
+    display: none !important;
+}
+
+/* ==========================================
+   ABOUT SECTION
+========================================== */
+
+.about {
+    background: #0b111e;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about-symbol {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(54, 93, 178, 0.2),
+            transparent 65%
+        ),
+        var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.sun-circle {
+    width: 125px;
+    height: 125px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(229, 189, 104, 0.5);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: 82px;
+}
+
+.symbol-caption {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+.about-copy h3 {
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+
+.about-copy p,
+.contact-description {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--light-blue);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   VISION SECTION
+========================================== */
+
+.vision {
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(49, 88, 173, 0.12),
+            transparent 45%
+        ),
+        var(--bg);
+}
+
+.section-description {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.vision-card {
+    min-height: 215px;
+    padding: 25px 22px;
+    position: relative;
+    background: linear-gradient(145deg, #111b2d, #0b111e);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.vision-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(127, 163, 255, 0.5);
+}
+
+.card-number {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    color: #69758a;
+    font-size: 11px;
+}
+
+.card-icon {
+    display: block;
+    color: var(--gold);
+    font-size: 27px;
+    margin-bottom: 17px;
+}
+
+.vision-card h3 {
+    font-size: 16px;
+    margin-bottom: 9px;
+}
+
+.vision-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.vision-disclaimer {
+    margin-top: 18px;
+    color: #8995a9;
+    font-size: 10px;
+}
+
+/* ==========================================
+   CONTACT SECTION
+========================================== */
+
+.contact {
+    padding-top: 65px;
+    padding-bottom: 80px;
+}
+
+.contact-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background:
+        radial-gradient(
+            ellipse at 100% 0%,
+            rgba(55, 100, 205, 0.2),
+            transparent 60%
+        ),
+        var(--panel);
+}
+
+.contact .eyebrow {
+    margin-bottom: 16px;
+}
+
+.contact-description {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.contact-note {
+    margin-top: 12px;
+    color: #8995a9;
+    font-size: 10px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.footer {
+    padding: 26px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.footer .college-logo {
+    width: 40px;
+    height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    flex-basis: 40px;
+}
+
+.footer-small {
+    width: 100%;
+    text-align: center;
+}
+
+/* ==========================================
+   SCROLL ANIMATION
+========================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 900px) {
+    .section {
+        padding: 70px 7%;
+    }
+
+    .hero {
+        min-height: 540px;
+        padding: 35px 6% 20px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+        gap: 10px;
+    }
+
+    .hero h1 {
+        font-size: clamp(36px, 5vw, 52px);
+        letter-spacing: -2px;
+    }
+
+    .hero-visual,
+    .portrait-frame {
+        height: 470px;
+    }
+
+    .about-grid {
+        gap: 30px;
+    }
+
+    .vision-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+    .header {
+        min-height: 70px;
+        padding: 10px 5%;
+    }
+
+    .brand {
+        gap: 9px;
+    }
+
+    .brand-text {
+        font-size: 10px;
+        letter-spacing: 0.6px;
+    }
+
+    .brand-text small {
+        font-size: 8px;
+        letter-spacing: 0.3px;
+    }
+
+    .college-logo {
+        width: 40px;
+        height: 40px;
+        max-width: 40px;
+        max-height: 40px;
+        flex-basis: 40px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 69px;
+        left: 0;
+        right: 0;
+        padding: 22px 6%;
+        background: #0c1423;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+    }
+
+    .navigation.open {
+        display: flex;
+    }
+
+    .navigation .nav-cta {
+        text-align: center;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 42px 6% 15px;
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 10.5vw, 58px);
+        letter-spacing: -1.8px;
+        line-height: 1.08;
+    }
+
+    .candidate-role {
+        margin-top: 17px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        margin-top: 22px;
+    }
+
+    .hero-note {
+        margin-top: 23px;
+    }
+
+    .hero-visual,
+    .portrait-frame {
+        width: 100%;
+        max-width: 460px;
+        height: 460px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .candidate-photo {
+        transform: translateY(-25px);
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .about-symbol {
+        min-height: 230px;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vision-card {
+        min-height: auto;
+    }
+
+    .contact-panel {
+        padding: 26px 21px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contact-panel .button {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-small {
+        text-align: left;
+    }
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 380px) {
+    .brand-text {
+        font-size: 9px;
+    }
+
+    .brand-text small {
+        font-size: 7px;
+    }
+
+    .college-logo {
+        width: 34px;
+        height: 34px;
+        max-width: 34px;
+        max-height: 34px;
+        flex-basis: 34px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .hero-visual,
+    .portrait-frame {
+        height: 410px;
+    }
+}
