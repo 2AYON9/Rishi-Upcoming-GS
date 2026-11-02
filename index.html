@@ -337,6 +337,16 @@ button:hover {
     .closing h2 {
         font-size: 23px;
     }
+    .music-button {
+    width: auto;
+    min-width: unset;
+    padding: 7px 16px;
+    display: inline-block;
+    margin: 12px auto;
+    font-size: 9px;
+    letter-spacing: 1px;
+    border-radius: 20px;
+}
 }
 </style>
 </head>
@@ -569,61 +579,46 @@ button:hover {
 <!-- JAVASCRIPT -->
 <script>
 
-// MUSIC STARTS ON FIRST SCROLL
-
+// MUSIC PLAY / PAUSE BUTTON
 const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
 
-let musicStarted = false;
-
-async function startMusicOnScroll() {
-
-    if (musicStarted) return;
-
+musicButton.addEventListener("click", async function() {
     try {
-        await music.play();
-
-        musicStarted = true;
-
-        console.log("Background music started!");
-
-        window.removeEventListener("scroll", startMusicOnScroll);
-
+        if (music.paused) {
+            await music.play();
+            musicButton.textContent = "⏸ PAUSE MUSIC";
+        } else {
+            music.pause();
+            musicButton.textContent = "▶ PLAY MUSIC";
+        }
     } catch (error) {
-        console.log("Music playback blocked:", error);
+        console.log("Music playback error:", error);
     }
-}
-
-
-// PASSWORD VALIDATION
-
-const correctPassword = "RISHI2026";
-
-document.getElementById("unlockForm")
-.addEventListener("submit", function(event) {
-
-    event.preventDefault();
-
-    const enteredPassword =
-        document.getElementById("password").value;
-
-    const errorMessage =
-        document.getElementById("error");
-
-    if (enteredPassword === correctPassword) {
-
-        window.location.href = "./home.html";
-
-    } else {
-
-        errorMessage.textContent =
-            "Incorrect password. Please try again.";
-
-        document.getElementById("password").value = "";
-
-    }
-
 });
 
+music.addEventListener("ended", function() {
+    musicButton.textContent = "▶ PLAY MUSIC";
+});
+
+// PASSWORD VALIDATION
+const correctPassword = "RISHI2026";
+
+const unlockForm = document.getElementById("unlockForm");
+
+unlockForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const enteredPassword = document.getElementById("password").value.trim();
+    const errorMessage = document.getElementById("error");
+
+    if (enteredPassword === correctPassword) {
+        window.location.href = "home.html";
+    } else {
+        errorMessage.textContent = "Incorrect password. Please try again.";
+        document.getElementById("password").value = "";
+    }
+});
 
 // START MUSIC WHEN VISITOR SCROLLS
 
