@@ -1,0 +1,633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Journey to Remember | Rishi Mahanta</title>
+
+<meta name="description" content="A journey of memories, friendships and unforgettable moments. Rishi Mahanta 2026.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background:
+        radial-gradient(ellipse at 50% 0%, #172d4d 0%, #080d18 65%);
+    color: #f5f7fc;
+    overflow-x: hidden;
+}
+
+/* Background decoration */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(125,211,252,.2) 1px, transparent 1px);
+    background-size: 45px 45px;
+    opacity: .15;
+}
+
+/* Main container */
+
+.container {
+    width: 100%;
+    max-width: 850px;
+    margin: auto;
+    padding: 70px 25px 35px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+
+.hero {
+    text-align: center;
+    animation: appear 1.2s ease;
+}
+
+.lock {
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.tag {
+    color: #7dd3fc;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 7vw, 55px);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: #7dd3fc;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-top: 18px;
+}
+
+/* Main message */
+
+.intro {
+    max-width: 650px;
+    margin: 45px auto 35px;
+    text-align: center;
+}
+
+.intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    color: #c4cede;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Password section */
+
+.password-section {
+    max-width: 440px;
+    margin: 35px auto;
+    text-align: center;
+}
+
+.password-section .tag {
+    line-height: 1.8;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #34445d;
+    background: #101a2b;
+    border-radius: 9px;
+    color: white;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    text-align: center;
+    margin: 15px 0;
+}
+
+input:focus {
+    border-color: #7dd3fc;
+    box-shadow: 0 0 15px rgba(125,211,252,.12);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: #477cff;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #6592ff;
+    transform: translateY(-3px);
+}
+
+#error {
+    color: #ff8585;
+    font-size: 12px;
+    margin-top: 12px;
+    min-height: 20px;
+}
+
+/* Divider */
+
+.divider {
+    width: 65px;
+    height: 1px;
+    background: #e5bd68;
+    margin: 55px auto;
+}
+
+/* Thank you letter */
+
+.letter {
+    max-width: 700px;
+    margin: 65px auto;
+    padding: 35px;
+    background: rgba(16,26,43,.75);
+    border: 1px solid rgba(125,211,252,.15);
+    border-radius: 16px;
+    line-height: 2;
+}
+
+.letter-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.letter-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #7dd3fc;
+}
+
+.letter-heading p {
+    color: #a3afc1;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+.letter p {
+    color: #c4cede;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.letter h3 {
+    font-family: 'Playfair Display', serif;
+    color: #e5bd68;
+    font-size: 21px;
+    margin: 28px 0 15px;
+}
+
+.letter strong {
+    color: #f5f7fc;
+    font-weight: 600;
+}
+
+.signature {
+    margin-top: 35px;
+    color: #7dd3fc;
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+}
+
+/* Closing message */
+
+.closing {
+    text-align: center;
+    margin: 65px auto;
+}
+
+.closing h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    line-height: 1.5;
+    color: #e5bd68;
+}
+
+.closing p {
+    color: #a3afc1;
+    font-size: 13px;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* Developer credits */
+
+.credits {
+    margin-top: 70px;
+    padding: 35px 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.credit-label {
+    color: #a3afc1;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.credits h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #7dd3fc;
+    font-size: 27px;
+    letter-spacing: 3px;
+    margin: 12px 0;
+}
+
+.credits p {
+    font-size: 12px;
+    color: #a3afc1;
+    line-height: 1.8;
+}
+
+.credit-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #e5bd68;
+    text-decoration: none;
+    font-size: 13px;
+    margin-top: 14px;
+    transition: .3s;
+}
+
+.credit-instagram:hover {
+    color: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.credit-work {
+    margin-top: 18px;
+}
+
+.credit-line {
+    width: 55px;
+    height: 1px;
+    background: #e5bd68;
+    margin: 22px auto;
+}
+
+.credits .credit-bottom {
+    color: #e5bd68;
+    letter-spacing: 2px;
+}
+
+.credits .copyright {
+    margin-top: 8px;
+}
+
+/* Animation */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 50px 18px 25px;
+    }
+
+    .letter {
+        padding: 24px 19px;
+    }
+
+    .letter-heading h2 {
+        font-size: 27px;
+    }
+
+    .letter p {
+        font-size: 13px;
+    }
+
+    .tag {
+        letter-spacing: 3px;
+    }
+
+    .intro h2 {
+        font-size: 26px;
+    }
+
+    .closing h2 {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="lock">🔒</div>
+
+        <p class="tag">A CHAPTER OF OUR LIVES</p>
+
+        <h1>A JOURNEY TO REMEMBER</h1>
+
+        <p class="subtitle">
+            RISHI MAHANTA · 2026
+        </p>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="intro">
+
+        <h2>Thank You <span style="color:#e5bd68;">♥</span></h2>
+
+        <p>
+            Some journeys are not remembered for how they ended,
+            but for the people, experiences and memories they leave behind.
+            This is one such journey.
+        </p>
+
+    </section>
+
+
+    <!-- PASSWORD SECTION -->
+
+    <section class="password-section">
+
+        <p class="tag">
+            ENTER PASSWORD TO REVISIT THE MEMORIES
+        </p>
+
+        <form id="unlockForm">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit">
+                UNLOCK MEMORIES →
+            </button>
+
+        </form>
+
+        <p id="error"></p>
+
+    </section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- PERSONAL LETTER FROM RISHI -->
+
+    <section class="letter">
+
+        <div class="letter-heading">
+
+            <h2>A Letter From Me ❤️</h2>
+
+            <p>WITH GRATITUDE · RISHI MAHANTA</p>
+
+        </div>
+
+        <p>
+            To everyone who stood by me throughout this journey,
+        </p>
+
+        <p>
+            First of all, thank you. Thank you for believing in me,
+            supporting me, giving me your time and standing beside
+            me throughout this entire experience.
+        </p>
+
+        <p>
+            Things didn't turn out exactly as I had hoped, but I
+            don't want this journey to be remembered only by its
+            result. For me, it was about the people I met, the
+            friendships I made, the love I received and the
+            memories we created together.
+        </p>
+
+        <h3>A Special Thank You to My PR Team ❤️</h3>
+
+        <p>
+            You guys deserve more appreciation than I can put
+            into words. I know how much effort, time, creativity
+            and hard work you put into this campaign.
+        </p>
+
+        <p>
+            From planning and managing things to capturing
+            moments and spreading our message, you were there
+            through it all.
+        </p>
+
+        <p>
+            There were busy days, stressful moments and countless
+            things happening behind the scenes, but you never
+            stopped giving your best. I'm genuinely grateful to
+            each and every one of you.
+        </p>
+
+        <p>
+            <strong>
+                This journey wouldn't have been the same without you.
+            </strong>
+        </p>
+
+        <h3>To My Friends, Supporters and Everyone</h3>
+
+        <p>
+            To my friends, supporters, volunteers and everyone
+            who encouraged me in their own way — I see your
+            efforts, and I truly appreciate them.
+        </p>
+
+        <p>
+            I may not have won the position, but I gained
+            experiences, memories and people that I will always
+            be thankful for.
+        </p>
+
+        <p>
+            This chapter has come to an end, but the memories
+            will stay with me forever.
+        </p>
+
+        <div class="signature">
+            With love and gratitude,<br>
+            Rishi Mahanta
+        </div>
+
+        <p style="color:#7dd3fc; margin-top:15px;">
+            Thank you for being a part of my journey. ❤️
+        </p>
+
+    </section>
+
+
+    <!-- CLOSING SECTION -->
+
+    <section class="closing">
+
+        <h2>
+            NOT JUST AN ELECTION.<br>
+            A MEMORY FOR A LIFETIME.
+        </h2>
+
+        <p>
+            The results may have marked the end of an election,
+            but they cannot take away the memories, friendships
+            and experiences we created together.
+        </p>
+
+    </section>
+
+
+    <!-- DEVELOPER CREDITS -->
+
+    <footer class="credits">
+
+        <p class="credit-label">
+            A PROJECT BY
+        </p>
+
+        <h2>AYON NATH</h2>
+
+        <p>
+            Website Design &amp; Development
+        </p>
+
+        <a
+            href="https://www.instagram.com/2ayon9/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="credit-instagram"
+        >
+           <svg xmlns="http://www.w3.org/2000/svg"
+     width="17" height="17"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="currentColor"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+  <rect x="3" y="3" width="18" height="18" rx="5"/>
+  <circle cx="12" cy="12" r="4"/>
+  <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
+</svg>
+            @2ayon9
+        </a>
+
+        <p class="credit-work">
+            Concept · Design · Development · Digital Memories
+        </p>
+
+        <div class="credit-line"></div>
+
+        <p class="credit-bottom">
+            MADE WITH PASSION ♥
+        </p>
+
+        <p class="copyright">
+            © 2026 Ayon Nath
+        </p>
+
+    </footer>
+
+</main>
+
+
+<!-- PASSWORD SCRIPT -->
+
+<script>
+
+const correctPassword = "RISHI2026";
+
+document.getElementById("unlockForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const enteredPassword =
+        document.getElementById("password").value;
+
+    const errorMessage =
+        document.getElementById("error");
+
+    if (enteredPassword === correctPassword) {
+
+        window.location.href = "./home.html";
+
+    } else {
+
+        errorMessage.textContent =
+            "Incorrect password. Please try again.";
+
+        document.getElementById("password").value = "";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
