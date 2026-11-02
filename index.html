@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,26 +27,20 @@ html {
 body {
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background:
-        radial-gradient(ellipse at 50% 0%, #172d4d 0%, #080d18 65%);
+    background: radial-gradient(ellipse at 50% 0%, #172d4d 0%, #080d18 65%);
     color: #f5f7fc;
     overflow-x: hidden;
 }
-
-/* Background decoration */
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background-image:
-        radial-gradient(circle, rgba(125,211,252,.2) 1px, transparent 1px);
+    background-image: radial-gradient(circle, rgba(125,211,252,.2) 1px, transparent 1px);
     background-size: 45px 45px;
     opacity: .15;
 }
-
-/* Main container */
 
 .container {
     width: 100%;
@@ -57,8 +50,6 @@ body::before {
     position: relative;
     z-index: 1;
 }
-
-/* Header */
 
 .hero {
     text-align: center;
@@ -91,8 +82,6 @@ h1 {
     margin-top: 18px;
 }
 
-/* Main message */
-
 .intro {
     max-width: 650px;
     margin: 45px auto 35px;
@@ -110,8 +99,6 @@ h1 {
     font-size: 14px;
     line-height: 2;
 }
-
-/* Password section */
 
 .password-section {
     max-width: 440px;
@@ -168,16 +155,12 @@ button:hover {
     min-height: 20px;
 }
 
-/* Divider */
-
 .divider {
     width: 65px;
     height: 1px;
     background: #e5bd68;
     margin: 55px auto;
 }
-
-/* Thank you letter */
 
 .letter {
     max-width: 700px;
@@ -232,8 +215,6 @@ button:hover {
     font-size: 23px;
 }
 
-/* Closing message */
-
 .closing {
     text-align: center;
     margin: 65px auto;
@@ -252,8 +233,6 @@ button:hover {
     margin-top: 15px;
     line-height: 1.8;
 }
-
-/* Developer credits */
 
 .credits {
     margin-top: 70px;
@@ -318,8 +297,6 @@ button:hover {
     margin-top: 8px;
 }
 
-/* Animation */
-
 @keyframes appear {
     from {
         opacity: 0;
@@ -332,10 +309,7 @@ button:hover {
     }
 }
 
-/* Mobile */
-
 @media (max-width: 600px) {
-
     .container {
         padding: 50px 18px 25px;
     }
@@ -368,14 +342,15 @@ button:hover {
 </head>
 
 <body>
-    <audio id="backgroundMusic" loop preload="auto">
+
+<!-- BACKGROUND MUSIC: ENTRANCE PAGE ONLY -->
+<audio id="backgroundMusic" loop preload="auto">
     <source src="./memory-music.mp3" type="audio/mpeg">
 </audio>
 
 <main class="container">
 
     <!-- HERO SECTION -->
-
     <section class="hero">
 
         <div class="lock">🔒</div>
@@ -390,9 +365,7 @@ button:hover {
 
     </section>
 
-
     <!-- INTRODUCTION -->
-
     <section class="intro">
 
         <h2>Thank You <span style="color:#e5bd68;">♥</span></h2>
@@ -405,9 +378,7 @@ button:hover {
 
     </section>
 
-
     <!-- PASSWORD SECTION -->
-
     <section class="password-section">
 
         <p class="tag">
@@ -434,12 +405,9 @@ button:hover {
 
     </section>
 
-
     <div class="divider"></div>
 
-
     <!-- PERSONAL LETTER FROM RISHI -->
-
     <section class="letter">
 
         <div class="letter-heading">
@@ -525,9 +493,7 @@ button:hover {
 
     </section>
 
-
     <!-- CLOSING SECTION -->
-
     <section class="closing">
 
         <h2>
@@ -543,9 +509,7 @@ button:hover {
 
     </section>
 
-
     <!-- DEVELOPER CREDITS -->
-
     <footer class="credits">
 
         <p class="credit-label">
@@ -564,19 +528,24 @@ button:hover {
             rel="noopener noreferrer"
             class="credit-instagram"
         >
-           <svg xmlns="http://www.w3.org/2000/svg"
-     width="17" height="17"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-  <rect x="3" y="3" width="18" height="18" rx="5"/>
-  <circle cx="12" cy="12" r="4"/>
-  <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
-</svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="17" height="17"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/>
+
+            </svg>
+
             @2ayon9
+
         </a>
 
         <p class="credit-work">
@@ -597,10 +566,10 @@ button:hover {
 
 </main>
 
-
-
-
+<!-- JAVASCRIPT -->
 <script>
+
+// PASSWORD VALIDATION
 
 const correctPassword = "RISHI2026";
 
@@ -629,15 +598,43 @@ document.getElementById("unlockForm")
     }
 
 });
-// AUTOMATIC BACKGROUND MUSIC
+
+// BACKGROUND MUSIC — ENTRANCE PAGE ONLY
 
 const music = document.getElementById("backgroundMusic");
 
-document.addEventListener("click", function startMusic() {
-    music.play().catch(error => {
-        console.log("Music playback blocked:", error);
-    });
-}, { once: true });
+let musicStarted = false;
+
+async function startMusic() {
+
+    if (musicStarted) return;
+
+    try {
+
+        await music.play();
+
+        musicStarted = true;
+
+        console.log("Background music started!");
+
+    } catch (error) {
+
+        console.log("Autoplay blocked. Waiting for interaction.");
+
+    }
+
+}
+
+// Attempt autoplay immediately when the page opens.
+
+startMusic();
+
+// Fallback after the visitor's first interaction.
+
+document.addEventListener("pointerdown", startMusic, { once: true });
+
+document.addEventListener("keydown", startMusic, { once: true });
+
 </script>
 
 </body>
