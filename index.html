@@ -368,6 +368,9 @@ button:hover {
 </head>
 
 <body>
+    <audio id="backgroundMusic" loop preload="auto">
+    <source src="./memory-music.mp3" type="audio/mpeg">
+</audio>
 
 <main class="container">
 
@@ -595,7 +598,7 @@ button:hover {
 </main>
 
 
-<!-- PASSWORD SCRIPT -->
+
 
 <script>
 
@@ -636,8 +639,6 @@ document.addEventListener("click", function startMusic() {
     });
 }, { once: true });
 </script>
-<audio id="backgroundMusic" loop preload="auto">
-    <source src="./memory-music.mp3" type="audio/mpeg">
-</audio>
+
 </body>
 </html>
