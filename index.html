@@ -569,6 +569,31 @@ button:hover {
 <!-- JAVASCRIPT -->
 <script>
 
+// MUSIC STARTS ON FIRST SCROLL
+
+const music = document.getElementById("backgroundMusic");
+
+let musicStarted = false;
+
+async function startMusicOnScroll() {
+
+    if (musicStarted) return;
+
+    try {
+        await music.play();
+
+        musicStarted = true;
+
+        console.log("Background music started!");
+
+        window.removeEventListener("scroll", startMusicOnScroll);
+
+    } catch (error) {
+        console.log("Music playback blocked:", error);
+    }
+}
+
+
 // PASSWORD VALIDATION
 
 const correctPassword = "RISHI2026";
@@ -599,42 +624,12 @@ document.getElementById("unlockForm")
 
 });
 
-// BACKGROUND MUSIC — ENTRANCE PAGE ONLY
 
-const music = document.getElementById("backgroundMusic");
+// START MUSIC WHEN VISITOR SCROLLS
 
-let musicStarted = false;
-
-async function startMusic() {
-
-    if (musicStarted) return;
-
-    try {
-
-        await music.play();
-
-        musicStarted = true;
-
-        console.log("Background music started!");
-
-    } catch (error) {
-
-        console.log("Autoplay blocked. Waiting for interaction.");
-
-    }
-
-}
-
-// Attempt autoplay immediately when the page opens.
-
-startMusic();
-
-// Fallback after the visitor's first interaction.
-
-document.addEventListener("pointerdown", startMusic, { once: true });
-
-document.addEventListener("keydown", startMusic, { once: true });
-
+window.addEventListener("scroll", startMusicOnScroll, {
+    passive: true
+});
 </script>
 
 </body>
